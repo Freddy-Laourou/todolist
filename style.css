@@ -1,0 +1,222 @@
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color : #F4F4F4;
+    display : flex;
+    flex-direction : column;
+    align-items: center;
+    margin : 0;
+    box-sizing: border-box;
+    
+}
+
+h1 {
+    background-color : #8FC1BE;
+    width : 100%;
+    margin: 0;
+    padding: 20px 20px;
+    border-radius: 0px 0px 30px 30px;
+    font-style: italic;
+    font-size: 45px;
+}
+
+.add_task {
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
+    
+}
+
+.add_task button {
+    color: #FFFFFF;
+    background-color: #E8836A;
+    padding: 10px 20px;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.add_task button:hover {
+    background-color: #D46A50;
+    transform: scale(1.1);
+    
+}
+
+.formulaire {
+    background-color: #F0B8A6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 10px;
+    gap: 8px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.hidden {
+    display: none !important; 
+}
+
+.formulaire input {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    outline: none;
+    font-size: 15px;
+
+}
+
+.formulaire input[type="text"]::placeholder {
+    text-align: center;
+}
+
+.formulaire-btn {
+    display: flex;
+    gap: 8px;
+    padding-top: 5px;
+    align-self: flex-end;
+}
+
+.formulaire-btn button {
+    font-size: 15px;
+    border: none;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.cancel_btn {
+    background-color: #A9C4C2;
+    color: #1A1A1A;
+}
+
+.cancel_btn:hover {
+    background-color: #9DAAAC;
+    transform: scale(1.01);
+}
+ 
+.add_btn {
+    background-color: #E8836A;
+    color: #1A1A1A;
+}
+
+.add_btn:hover {
+    background-color: #D46A50;
+    transform: scale(1.03);
+} 
+
+input[type="checkbox"] {
+    display: none;
+}
+
+label {
+    width: 20px;
+    height: 20px;
+    background-color: #f0f0f0;
+    border-radius: 100%;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s all ease-in-out;
+}
+
+input[type="checkbox"]:checked + label {
+    background-color: #E8836A;
+}
+
+label::before {
+    content: '\2713';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    font-size: 20px;
+    color: white;
+    transition: 0.3s all ease-in-out;
+}
+
+input[type="checkbox"]:checked + label::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+.task_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 15px;
+    width: 90%;
+
+}
+
+.a_task {
+    background-color: #8FC1BE;
+    padding: 18px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+
+.a_task:has(input[type="checkbox"]:checked) {
+    background-color: #F0B8A6;
+}
+
+.a_task span{
+    flex: 1;
+}
+
+
+.a_task button{
+    border: none;
+    font-size: 13px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    width: 70px;
+    transition: all 0.2s ease;
+}
+
+.edit_btn {
+    background-color: #A9C4C2;
+    color: #1A1A1A;
+}
+
+.edit_btn:hover {
+    background-color: #9DAAAC;
+    transform: scale(1.01);
+}
+
+.delete_btn {
+    background-color: #E8836A;
+    color: #1A1A1A;
+}
+
+.delete_btn:hover {
+    background-color: #D46A50;
+    transform: scale(1.03);
+}
+
+.elements {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.deadline {
+    display: flex;
+    gap: 10px;
+    align-self: flex-end;
+    font-size: 13px;
+    padding:0%;
+    margin-bottom: -20px;
+}
+

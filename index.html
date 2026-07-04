@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toDo_List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<h1>My ToDo List</h1>
+<div class="add_task" >
+    <button>+ Add a task</button>
+</div>
+<div class="formulaire hidden">
+    <input type="text" id="input_field" placeholder="Nouvelle tâche...">
+    <input type="date" id="date_field">
+    <input type="time" id="hour_field">
+    <div class="formulaire-btn">
+        <button class="cancel_btn">Annuler</button>
+        <button class="add_btn">Ajouter</button>
+    </div>  
+</div>
+<div class="task_grid"> 
+    <div class="a_task hidden" id="task0">
+        <div class="elements">
+            <input type="checkbox" id="t0">
+            <label for="t0"></label>
+            <span>My task </span>
+            <button class="edit_btn">edit</button>
+            <button class="delete_btn">delete</button>
+        </div>
+        <div class="deadline">
+            <p class="date">02-07-2026</p>
+            <p class="hour">00:00</p>
+        </div>
+    </div>
+    
+</div>
+<script src="script.js" defer></script>
+</body>
+</html>
