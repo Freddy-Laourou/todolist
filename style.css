@@ -14,14 +14,14 @@ body {
 }
 
 h1 {
-    /*background-color : #8FC1BE;*/
-    background-color: #A9C4C2;
+    background-color : #8FC1BE;
     width : 100%;
     margin: 0;
     padding: 20px 20px 20px 20px;
     border-radius: 0px 0px 30px 30px;
     font-style: italic;
     font-size: 45px;
+    box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.15);
     position: fixed;
     top: 0;
     left: 0;
@@ -268,7 +268,7 @@ input[type="checkbox"]:checked + label::before {
     }
     .a_task button {
         padding: 5px 7px;
-        width: 80px;
+        width: 60px;
     }
     .deadline{
         font-size: 10px;
