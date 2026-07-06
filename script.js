@@ -23,7 +23,7 @@ function cancel_formulaire() {
     close_formulaire();
 }
 
-function add_task() {
+async function add_task() {
     let texte_actuel = champ_saisi.value;
     let date_value = date_saisie.value;
     let hour_value = heure_saisie.value;
@@ -69,7 +69,7 @@ function add_task() {
 
         close_formulaire();
         trier_tasks();
-        save_tasks();
+        await save_tasks();
     }
 }
 
@@ -93,23 +93,31 @@ function pull_task() {
             heure: heure.textContent
         });
     });
-
     return tasks_data;
 }
 
-function save_tasks() {
-    let tasks_data = pull_task();
-    let jsonString = JSON.stringify(tasks_data);
-    localStorage.setItem('tasks', jsonString);
+async function sauvergarder_taches(tableau) {
+    await fetch ('/tasks', {
+        method : 'POST',
+        headers : { 'Content-Type': 'application/json'},
+        body :JSON.stringify(tableau)
+    });
 }
 
-function push_tasks() {
+
+async function save_tasks() {
+    let tasks_data = pull_task();
+    await sauvergarder_taches(tasks_data);
+}
+
+async function push_tasks() {
     compteur_id = 0;
 
-    let jsonString = localStorage.getItem('tasks');
+    let reponse = await fetch('/tasks');
+    let donnees = await reponse.json();
 
-    if (jsonString != null) {
-        let tasks_data = JSON.parse(jsonString);
+    if (donnees != null) {
+        let tasks_data = donnees;
 
         tasks_data.forEach(function(task_object) {
             let clone_task = premiere_task.cloneNode(true);
@@ -136,10 +144,10 @@ function push_tasks() {
     trier_tasks();
 }
 
-function delete_task(tache) {
+async function delete_task(tache) {
     tache.remove();
     trier_tasks();
-    save_tasks();
+    await save_tasks();
 }
 
 function edit_task(tache) {
@@ -194,10 +202,10 @@ function trier_tasks() {
 button.addEventListener('click', close_formulaire);
 cancel_button.addEventListener('click', cancel_formulaire);
 add_button.addEventListener('click', add_task);
-liste_taches.addEventListener('click', function(event) {
+liste_taches.addEventListener('click', async function(event) {
     if (event.target.classList.contains('delete_btn')) {
         let tache = event.target.closest('.a_task');
-        delete_task(tache);
+        await delete_task(tache);
     }
 
     if (event.target.classList.contains('edit_btn')) {
@@ -205,10 +213,10 @@ liste_taches.addEventListener('click', function(event) {
         edit_task(tache);
     }
 });
-liste_taches.addEventListener('change', function(event){
+liste_taches.addEventListener('change', async function(event){
     if (event.target.matches('input[type="checkbox"]')) {
         trier_tasks();
-        save_tasks();
+        await save_tasks();
     }
 })
 

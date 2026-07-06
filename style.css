@@ -1,5 +1,6 @@
 * {
   font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
 }
 
 body {
@@ -9,24 +10,29 @@ body {
     align-items: center;
     margin : 0;
     box-sizing: border-box;
-    
+    overscroll-behavior: none;
 }
 
 h1 {
-    background-color : #8FC1BE;
+    /*background-color : #8FC1BE;*/
+    background-color: #A9C4C2;
     width : 100%;
     margin: 0;
-    padding: 20px 20px;
+    padding: 20px 20px 20px 20px;
     border-radius: 0px 0px 30px 30px;
     font-style: italic;
     font-size: 45px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 .add_task {
     display: flex;
     flex-direction: column;
     padding: 18px;
-    
+    margin-top: 130px;
 }
 
 .add_task button {
@@ -36,6 +42,7 @@ h1 {
     border-radius: 25px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
+    /*margin-top: 140 px;*/
 }
 
 .add_task button:hover {
@@ -58,6 +65,7 @@ h1 {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
 }
 
 .hidden {
@@ -124,6 +132,7 @@ label {
     position: relative;
     cursor: pointer;
     transition: 0.3s all ease-in-out;
+    flex-shrink: 0;
 }
 
 input[type="checkbox"]:checked + label {
@@ -165,7 +174,6 @@ input[type="checkbox"]:checked + label::before {
     transition: background-color 0.3s ease-in-out;
 }
 
-
 .a_task:has(input[type="checkbox"]:checked) {
     background-color: #F0B8A6;
 }
@@ -173,7 +181,6 @@ input[type="checkbox"]:checked + label::before {
 .a_task span{
     flex: 1;
 }
-
 
 .a_task button{
     border: none;
@@ -220,3 +227,50 @@ input[type="checkbox"]:checked + label::before {
     margin-bottom: -20px;
 }
 
+/*@media (max-width: 900px) {
+    .task_grid {
+        grid-template-columns : repeat(2, 1fr);
+    }
+}*/
+
+@media (max-width: 600px) {
+    body {
+        font-size: 13px;
+    }
+    h1 {
+        font-size: 30px;
+        border-radius: 0px 0px 20px 20px;
+    }
+    .add_task {
+        padding: 5px 10px;
+        border-radius: 15px;
+        margin-top: 95px;
+    }
+
+    .formulaire{
+        position: static;
+        transform: none;
+        box-shadow: none;
+        margin-top: 10px;
+        z-index: 15px;
+    }
+
+    .task_grid {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 0px;
+        width: 85%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    .a_task {
+        width: 100%;
+        padding: 10px;
+    }
+    .a_task button {
+        padding: 5px 7px;
+        width: 80px;
+    }
+    .deadline{
+        font-size: 10px;
+    }
+}
