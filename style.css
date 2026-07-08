@@ -235,7 +235,7 @@ input[type="checkbox"]:checked + label::before {
 
 @media (max-width: 600px) {
     body {
-        font-size: 15px;
+        font-size: 16px;
     }
     h1 {
         font-size: 30px;
@@ -265,12 +265,15 @@ input[type="checkbox"]:checked + label::before {
     .a_task {
         width: 100%;
         padding: 10px;
+        border-radius: 18px;
+        font-weight: 500;
     }
     .a_task button {
         padding: 5px 7px;
         width: 60px;
+        font-weight: 500; /*400 par défaut*/
     }
     .deadline{
-        font-size: 10px;
+        font-size: 13px;
     }
 }
