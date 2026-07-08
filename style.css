@@ -245,7 +245,11 @@ input[type="checkbox"]:checked + label::before {
         padding: 10px 15px;
         border-radius: 15px;
         margin-top: 95px;
+    }
+
+    .add_task button {
         font-size: 15px;
+        font-weight: 500;
     }
 
     .formulaire{
