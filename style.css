@@ -245,6 +245,7 @@ input[type="checkbox"]:checked + label::before {
         padding: 10px 15px;
         border-radius: 15px;
         margin-top: 95px;
+        font-size: 15px;
     }
 
     .formulaire{
