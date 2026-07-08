@@ -143,7 +143,7 @@ async function push_tasks() {
             label.htmlFor = `t${compteur_id}`;
             date.textContent = format_date_affichage(task_object.date);
             date.dataset.full = task_object.date;
-            heure.textContent = task_object.heure;
+            heure.textContent = task_object.heure.slice(0, 5);
 
             clone_task.classList.remove('hidden');
             liste_taches.appendChild(clone_task);
