@@ -279,6 +279,7 @@ input[type="checkbox"]:checked + label::before {
         font-weight: 500; /*400 par défaut*/
     }
     .deadline{
-        font-size: 13px;
+        /*font-size: 13px;*/
+        margin-bottom: -10px;
     }
 }
